@@ -1,4 +1,4 @@
-# GSOC_2k16_Orgs_List
+# GSOC 2k16 Orgs List
  List of accepted organisations for GSOC 2016
 
 
