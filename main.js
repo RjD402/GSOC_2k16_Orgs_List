@@ -102,7 +102,7 @@ function Technologies(){
 	_this.collection = [];
 
 	_this.extract = function(cb){
-		var i = _this.collection.length;
+		var i = _this.index;
 		GLOBALS.tech = setInterval(function(){
 			if (i >= orgs.length) {
 				clearInterval(GLOBALS.tech);
