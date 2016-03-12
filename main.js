@@ -7,9 +7,18 @@ var GLOBALS = {
     img: 0
 }
 
+Object.prototype.getName = function(args) {
+   var name = args.callee.toString();
+   name = name.substr('function '.length);
+   name = name.substr(0, name.indexOf('('));
+   return name;
+};
+
 function OrgNames() {
+    var name = this.getName(arguments);
+    if(this.constructor.name !== name) {console.log("New not specified");return new this();};
+
     "use strict";
-    if(!(this instanceof OrgNames)) return new OrgNames();
 
     var _this = this;
 
@@ -41,8 +50,10 @@ function OrgNames() {
 }
 
 function IdeasPage(){
+    var name = this.getName(arguments);
+    if(this.constructor.name !== name) {console.log("New not specified");return new this();};
+
     "use strict";
-    if(!(this instanceof IdeasPage)) return new IdeasPage();
     
     var _this = this;
 
@@ -80,9 +91,11 @@ function IdeasPage(){
 }
 
 function Technologies(){
-    "use strict";
-    if(!(this instanceof Technologies)) return new Technologies();
+    var name = this.getName(arguments);
+    if(this.constructor.name !== name) {console.log("New not specified");return new this();};
 
+    "use strict";
+    
     var _this = this;
 
     _this.technologies = [];
@@ -123,8 +136,10 @@ function Technologies(){
 }
 
 function ImageLinks(){
+    var name = this.getName(arguments);
+    if(this.constructor.name !== name) {console.log("New not specified");return new this();};
+
     "use strict";
-    if(!(this instanceof ImageLinks)) return new ImageLinks();
 
     var _this = this;
     _this.imageLinks = [];
