@@ -9,16 +9,17 @@ var GLOBALS = {
 
 /*
     TODO
-    Rename specific array names like orgNames, ideasPage etc. etc. to just collection.
     Make peoper use of inheritance, it's really awesome :D
     Who said JavaScript is not Object Oriented Language :P
 */
 
 function Scrapers(name){
-    // Usage example: 
-    // var orgNames = new Scrapers(OrgNames);
-    // OR EVEN
-    // var orgNames = Scrapers(OrgNames);
+    /*
+    Usage example:
+        var orgNames = new Scrapers(OrgNames);
+                    OR EVEN
+        var orgNames = Scrapers(OrgNames);
+    */
     if(name){
         return new name();
     }
@@ -40,6 +41,11 @@ Scrapers.prototype.print = function(joiner, cb) {
     }
 };
 
+/* Change it to property instead of a function */
+Scrapers.prototype.index = function(){
+    return this.collection.length;
+}
+
 function OrgNames() {
     "use strict";
 
@@ -47,16 +53,11 @@ function OrgNames() {
 
     _this.collection = [];
 
-    Object.defineProperty(_this, 'index', {
-        get: function(){
-            return _this.collection.length;
-        }
-    });
-
     _this.extract = function(cb){
         var a = document.getElementsByClassName('organization-card__container flex-sm-100 flex-md-50 flex-33');
-        for (var i = _this.index; i < a.length; i++) {
+        for (var i = _this.index(); i < a.length; i++) {
             var text = a[i].getAttribute('aria-label').replace('Show details for ', '');
+            console.log("Pushing");
             _this.collection.push(text.trim());
         }
         console.log("Done extracting");
@@ -74,14 +75,8 @@ function IdeasPage(){
 
     _this.collection = [];
 
-    Object.defineProperty(_this, 'index', {
-        get: function(){
-            return _this.collection.length;
-        }
-    });
-
     _this.extract = function(cb){
-        var i = _this.index;
+        var i = _this.index();
         GLOBALS.idea = setInterval(function(){
             if(i >= orgs.length){
                 clearInterval(GLOBALS.idea);
@@ -107,12 +102,6 @@ function Technologies(){
     var _this = this;
 
     _this.collection = [];
-
-    Object.defineProperty(_this, 'index', {
-        get: function(){
-            return _this.collection.length;
-        }
-    });
 
     _this.extract = function(cb){
         var i = _this.collection.length;
@@ -144,14 +133,8 @@ function ImageLinks(){
     var _this = this;
     _this.collection = [];
 
-    Object.defineProperty(_this, 'index', {
-        get: function(){
-            return _this.collection.length;
-        }
-    });
-
     _this.extract = function(cb){
-        var i = _this.index;
+        var i = _this.index();
         GLOBALS.img = setInterval(function(){
             if (i >= orgs.length) {
                 clearInterval(GLOBALS.img);
