@@ -117,7 +117,7 @@ function Technologies(){
     _this.extract = function(cb){
         var i = _this.collection.length;
         GLOBALS.tech = setInterval(function(){
-            if (i >= orgs.length) {
+            if (i >= orgNamess.length) {
                 clearInterval(GLOBALS.tech);
                 console.log("Done extracting");
                 if(cb){cb(_this.collection);};
@@ -170,6 +170,17 @@ function ImageLinks(){
 }
 ImageLinks.prototype = new Scrapers();
 ImageLinks.prototype.constructor = OrgNames;
+
+
+/* 
+At this stage of code we have
+    var t = new Scrapers(Technologies);
+    t instanceof Scrapers;
+    // true
+    t instanceof Technologies;
+    // true
+*/
+
 
 var scroller = function(cb){
     var disabled = false;
