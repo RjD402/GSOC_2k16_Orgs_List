@@ -99,7 +99,7 @@ function IdeasPage(){
     /* Save this in ideas.txt */
 }
 IdeasPage.prototype = new Scrapers();
-IdeasPage.prototype.constructor = OrgNames;
+IdeasPage.prototype.constructor = IdeasPage;
 
 function Technologies(){
     "use strict";
@@ -136,7 +136,7 @@ function Technologies(){
     /* Save this in technologies.txt, join with ', ' while printing */
 }
 Technologies.prototype = new Scrapers();
-Technologies.prototype.constructor = OrgNames;
+Technologies.prototype.constructor = Technologies;
 
 function ImageLinks(){
     "use strict";
@@ -169,7 +169,7 @@ function ImageLinks(){
     /* Save this in images.txt */
 }
 ImageLinks.prototype = new Scrapers();
-ImageLinks.prototype.constructor = OrgNames;
+ImageLinks.prototype.constructor = ImageLinks;
 
 
 /* 
