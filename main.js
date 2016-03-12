@@ -7,7 +7,10 @@ var GLOBALS = {
     img: 0
 }
 
-var OrgNames = function () {
+function OrgNames() {
+    "use strict";
+    if(!(this instanceof OrgNames)) return new OrgNames();
+
     var _this = this;
 
     _this.orgNames = [];
@@ -37,7 +40,10 @@ var OrgNames = function () {
     }
 }
 
-var IdeasPage = function(){
+function IdeasPage(){
+    "use strict";
+    if(!(this instanceof IdeasPage)) return new IdeasPage();
+    
     var _this = this;
 
     _this.ideasPage = [];
@@ -73,7 +79,10 @@ var IdeasPage = function(){
     }
 }
 
-var Technologies = function(){
+function Technologies(){
+    "use strict";
+    if(!(this instanceof Technologies)) return new Technologies();
+
     var _this = this;
 
     _this.technologies = [];
@@ -113,7 +122,10 @@ var Technologies = function(){
     }
 }
 
-var ImageLinks = function(){
+function ImageLinks(){
+    "use strict";
+    if(!(this instanceof ImageLinks)) return new ImageLinks();
+
     var _this = this;
     _this.imageLinks = [];
 
@@ -147,7 +159,6 @@ var ImageLinks = function(){
         }
         if(cb){cb();};
     };
-
 }
 
 var scroller = function(cb){
